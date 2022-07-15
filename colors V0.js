@@ -74,21 +74,24 @@ function generate_table() {
 
  function select(blah)
 {
-    var namestring = "";
- 
+  
+  function Unselect(element)
+  {
+      console.log(element.id)
+      document.getElementById(element.id).setAttribute("class", "a");
+  }
 
- 
-    for(var j = 0; j < 8; j++){
-      for (var i = 0; i < num_of_rows; i++) {
-        namestring = String(j + ',' + i);
-        if(document.getElementById(namestring).className == "selected" )
-          {
-            document.getElementById(blah.id).setAttribute("class", "a");
-            var picked_color = document.getElementById(blah.id).getAttribute("style", "background-color:");
-            console.log(picked_color);
-          }
-      }
-    }
+    
+   
+
+    var selected_list = document.getElementsByClassName("selected");
+    //console.log(selected_list);
+
+    var arr = Array.from(selected_list);
+    //console.log(arr);
+    arr.forEach(Unselect)
+
+
     document.getElementById(blah.id).setAttribute("class", "selected");
 }
 
