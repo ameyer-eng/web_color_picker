@@ -1,10 +1,5 @@
 
-
-
  var num_of_rows = 14;        
-
-
-
 
  
 function generate_table() {
@@ -16,11 +11,6 @@ function generate_table() {
   return hex.length == 1 ? "0" + hex : hex;
  }
  
-
-
-
- //var current_hour = 0;
-
  // get the reference for the body
   var body = document.getElementsByTagName("body")[0];
  
@@ -65,34 +55,36 @@ function generate_table() {
   tbl.setAttribute("border", "3");
   tbl.setAttribute("width", "50%");
   
-
-
 }
 
-
-//Reference weekdays.js function murgecells() if needed
 
  function select(blah)
 {
   
+  // Unselect function takes a html element and then sets it's class type to unselected
   function Unselect(element)
   {
-      console.log(element.id)
-      document.getElementById(element.id).setAttribute("class", "a");
+      //console.log(element.id)
+      document.getElementById(element.id).setAttribute("class", "normal-unselected");
   }
 
     
-   
+     //////////////////////////////////////////////////////////////////////////
+     //Checks to see if any elements are already selected and unselects them
+     //Before assigning the current element class to selected. 
+    
+      var selected_htmlCollection = document.getElementsByClassName("selected");
+  
+      //creates an array of objects from html collection 
+      //needed because .forEach does not work with html collection
+      var arr = Array.from(selected_htmlCollection);
+      //runs the Unselect() function on each element in the array
+      arr.forEach(Unselect)
 
-    var selected_list = document.getElementsByClassName("selected");
-    //console.log(selected_list);
-
-    var arr = Array.from(selected_list);
-    //console.log(arr);
-    arr.forEach(Unselect)
-
-
+    //Set the element that was clicked on to selected ...AFTER checking for any selected elements
     document.getElementById(blah.id).setAttribute("class", "selected");
+    var selected_color = document.getElementById(blah.id).getAttribute("style", "background-color:");
+    console.log(selected_color);
 }
 
 
