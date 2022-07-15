@@ -2,8 +2,8 @@
 
 
  var num_of_rows = 14;        
- var class_index = 0;
- var table_task = ["b", "c", "d"];
+
+
 
 
  
@@ -70,65 +70,7 @@ function generate_table() {
 }
 
 
-// function merge_cells()
-// {
-// var namestring = "";
-// var ingroup = false;
-// var group_num = 1;
-// task_title = document.getElementById("task").value
-
-// for(var j = 0; j < 8; j++)
-// {
-//   for (var i = 0; i < num_of_rows; i++)
-//   {
-//     namestring = String(j + ',' + i);
-    
-//     if(document.getElementById(namestring).className !== "selected" && ingroup == true)
-//     {
-//       ingroup = false;
-//       console.log("group end");
-//     }
-//     else if(document.getElementById(namestring).className == "selected" && ingroup == true)
-//     {
-//       console.log(namestring +" is in group " + group_num);
-      
-//       //Add element to group list
-//       groups[group_num].push(namestring);
-//     }
-//     else if(document.getElementById(namestring).className == "selected" && ingroup == false)
-//     {
-//       console.log(namestring + " START OF A NEW GROUP");
-
-//       //Add the task title to start of time block:
-//       document.getElementById(namestring).innerText = task_title;
-      
-//       // Create new group for elements to go into
-//       group_num++;
-//       groups[group_num] =[];
-//       //add current element id to new group
-//       groups[group_num].push(namestring);
-
-//       ingroup = true;
-
-//     }
-    
-//     if(document.getElementById(namestring).className == "selected")
-//     {
-//             document.getElementById(namestring).setAttribute("class", table_task[class_index]);
-//     }
-    
-
-//   }
-  
-// }
-// if(class_index < 2){
-//   class_index++;
-// }
-// else{
-//   class_index = 0;
-// }
-// console.log(groups); 
-// }
+//Reference weekdays.js function murgecells() if needed
 
  function select(blah)
 {
@@ -142,7 +84,8 @@ function generate_table() {
         if(document.getElementById(namestring).className == "selected" )
           {
             document.getElementById(blah.id).setAttribute("class", "a");
-            document.getElementById(blah.id).setAttribute("border:  1px solid black;");
+            var picked_color = document.getElementById(blah.id).getAttribute("style", "background-color:");
+            console.log(picked_color);
           }
       }
     }
