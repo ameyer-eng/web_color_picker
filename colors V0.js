@@ -64,7 +64,6 @@ function generate_table() {
   // Unselect function takes a html element and then sets it's class type to unselected
   function Unselect(element)
   {
-      //console.log(element.id)
       document.getElementById(element.id).setAttribute("class", "normal-unselected");
   }
 
@@ -83,8 +82,16 @@ function generate_table() {
 
     //Set the element that was clicked on to selected ...AFTER checking for any selected elements
     document.getElementById(blah.id).setAttribute("class", "selected");
-    var selected_color = document.getElementById(blah.id).getAttribute("style", "background-color:");
+    var selected_color_total = document.getElementById(blah.id).getAttribute("style", "background-color:");
+    
+    var color_split = selected_color_total.toString().split("#")
+    selected_color = "#" + color_split[1].replace(";","");
     console.log(selected_color);
+    var color_paragraph = document.getElementById("color_output");
+    color_paragraph.innerHTML = selected_color;
+    //color_paragraph.style.color = selected_color;
+    document.getElementById("color_output").style.color = selected_color;
+
 }
 
 
